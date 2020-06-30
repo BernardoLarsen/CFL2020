@@ -1,0 +1,19 @@
+.contenedor1{
+    display: flex;
+    margin: auto;
+    border-radius: 15px;
+    background-color: #dcdde1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height:70px;
+}
+.encabezado{
+    width: 40%;
+    height: 25%;
+}
+.menu1{
+    background-color: #006111;
+    width: 60%;
+    height: 30%;
+    padding: 15px;
+}

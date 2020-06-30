@@ -1,0 +1,10 @@
+
+.Divpadre{
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    width: max-content;
+}
+.divhijo{
+    font-style: italic;
+}

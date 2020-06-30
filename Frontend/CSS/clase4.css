@@ -1,0 +1,27 @@
+.div-main > p{
+    color: coral;
+}
+.div-main p span{
+    color: blue
+}
+div ~ h2{
+    color: cornflowerblue;
+}
+div + h2{
+    color: red;
+}
+.div-main{
+    color: green
+}
+div + h1{
+    color: pink;
+}
+.div-segundo .div-adentro-segundo p{
+    color: saddlebrown;
+}
+.hover:hover{
+    color: seagreen;
+}
+.visited:active{
+    color: turquoise;
+}
