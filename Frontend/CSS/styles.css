@@ -1,0 +1,21 @@
+.padre{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	background-color: black;
+	height: 200px;
+	flex-flow: row-reverse wrap;
+	justify-content: center;
+	align-items: center;
+	order: 3;
+}
+.hijo{
+	font-size: 25px;
+	color: white;
+	align-content: center;
+	padding: 10px;
+	width: 15%;
+	flex-grow: 1;
+	border: 10px solid red;
+	text-align: center;
+}

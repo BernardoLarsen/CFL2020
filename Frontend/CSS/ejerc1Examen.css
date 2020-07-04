@@ -1,0 +1,17 @@
+body{
+    background-color: grey;
+}
+.titulo{
+    color: red;
+}
+.divParrafos{
+    font-weight: bold;
+}
+.divUltimaImg{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+}
+.imagen{
+    width: 300px;
+}

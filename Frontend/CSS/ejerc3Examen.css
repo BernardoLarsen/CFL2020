@@ -1,0 +1,15 @@
+#carouselExampleIndicators{
+    width: 30%;
+    height: 20%;
+    margin: 3%;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    margin-bottom: 5%;
+}
+.row div{
+    border: 1px solid black;
+    height: 40px;
+}

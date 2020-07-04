@@ -1,0 +1,15 @@
+body{
+    background-color: khaki;
+}
+#miInput{
+    width: 25%;
+    height: 40px;
+    font-size: medium;
+    font-weight: bold;
+}
+#guardar{
+    background-color: lightblue;
+}
+#limpiar{
+    background-color: lightpink;
+}
