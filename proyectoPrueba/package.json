@@ -1,0 +1,16 @@
+{
+  "name": "proyectoprueba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "servidor": "node index.js",
+    "mostrar": "node ejerc1.js & node ejerc2.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
