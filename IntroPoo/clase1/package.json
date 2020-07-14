@@ -1,15 +1,13 @@
 {
-  "name": "typescript",
+  "name": "IntroPoo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ejecutar": "tsc ejerc2.ts & node ejerc2.js",
+    "tv": "tsc televisor.ts & node televisor.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "readline-sync": "^1.4.10"
-  }
+  "license": "ISC"
 }
