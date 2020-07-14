@@ -1,38 +1,42 @@
+import * as ReadlineSync from './node_modules/readline-sync';
 class Decodificador{
-    private estaPrendido: boolean
-    private volumenActual: number
-    private canalActual: number
+    private estaPrendido: boolean;
+    private volumenActual: number;
+    private canalActual: number;
 
-    constructor(volumenInicial: number, canalInicial: number) {
+    public constructor(volumenInicial: number, canalInicial: number) {
         this.volumenActual = volumenInicial;
         this.canalActual = canalInicial;
         this.estaPrendido = false;
     }
-    prenderApagar(): void {
+    public prenderApagar(): void {
         if (this.estaPrendido)
-            this.estaPrendido = false
+            this.estaPrendido = false;
         else
-            this.estaPrendido = true
+            this.estaPrendido = true;
     }
-    subirVolumen(): void {
+    public subirVolumen(): void {
         if (this.estaPrendido)
-        this.volumenActual = this.volumenActual + 1
+        this.volumenActual = this.volumenActual + 1;
     }
-    bajarVolumen(): void {
+    public bajarVolumen(): void {
         if (this.estaPrendido)
-        this.volumenActual = this.volumenActual - 1
+        this.volumenActual = this.volumenActual - 1;
     }
-    subirCanal(): void {
+    public  subirCanal(): void {
         if (this.estaPrendido)
-        this.canalActual = this.canalActual + 1
+        this.canalActual = this.canalActual + 1;
     }
-    bajarCanal(): void {
+    public bajarCanal(): void {
         if (this.estaPrendido)
-        this.canalActual = this.canalActual - 1
+        this.canalActual = this.canalActual - 1;
     }
-    elegirCanal(canal: number): void {
+    public elegirCanal(canal: number): void {
         if (this.estaPrendido)
         this.canalActual = canal;
+    }
+    public verCanalActual(): number {
+        return this.canalActual;
     }
 }
 class Televisor{
@@ -43,43 +47,47 @@ class Televisor{
        this.decodificador=decodificador;
 
     }
-    prenderApagar(): void {
+    public prenderApagar(): void {
         if (this.estaPrendido)
-            this.estaPrendido = false
+            this.estaPrendido = false;
         else
-            this.estaPrendido = true
+            this.estaPrendido = true;
+        decodificador.prenderApagar();
     }
-    subirVolumen(): void {
+    public subirVolumen(): void {
         if(this.estaPrendido){
             this.decodificador.subirVolumen();
         }
     }
-    bajarVolumen(): void {
+    public bajarVolumen(): void {
         if(this.estaPrendido){
             this.decodificador.bajarVolumen();
         }
-        
     }
-    subirCanal(): void {
+    public subirCanal(): void {
         if(this.estaPrendido){
             this.decodificador.subirCanal();
         }
-        
     }
-    bajarCanal(): void {
+    public bajarCanal(): void {
         if(this.estaPrendido){
             this.decodificador.bajarCanal();
         }
-        
     }
-    elegirCanal(canal: number): void {
+    public elegirCanal(canal: number): void {
         if(this.estaPrendido){
             this.decodificador.elegirCanal(canal);
         }
     }
+    public verCanalActual(): number {
+        return this.decodificador.verCanalActual();
+        }
 }
 
 let decodificador: Decodificador= new Decodificador(0,0);
 let primerTelevisor: Televisor= new Televisor(decodificador);
-primerTelevisor.elegirCanal(25);
+let canal:number=ReadlineSync.questionInt("ingrese el canal deseado: ");
+primerTelevisor.prenderApagar();
+primerTelevisor.subirVolumen();
+primerTelevisor.elegirCanal(canal);
 console.log(primerTelevisor);
