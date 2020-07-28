@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import * as ReadlineSync from './node_modules/readline-sync';
+import * as ReadlineSync from "readline-sync";
 
 class Auto{
     private marca: string;
@@ -9,13 +9,13 @@ class Auto{
     private cajaCambio: boolean; // SI ES TRUE ES AUTOMATICO.. SI ES FALSE ES MANUAL
     private _patente: string;
 
-    constructor(marca:string,color:string,año:number,modelo:string,cajaCambio:boolean, _patente:string){
+    constructor(marca:string,color:string,año:number,modelo:string,cajaCambio:boolean, patente:string){
         this.marca=marca;
         this.color=color;
         this.año=año;
         this.modelo=modelo;
         this.cajaCambio=cajaCambio;
-        this._patente=_patente;
+        this._patente=patente;
     }
     public GetPatente():string{
         return this._patente;
@@ -35,10 +35,13 @@ class RegistroAutomotor{
         }
     }
 
-    public buscarPatente(patenteIngresada:string): number{
+    public buscarPatente(patenteIngresada:string):any{
         for(let i:number=0;i<this.array.length;i++){
             if(patenteIngresada==this.array[i].GetPatente()){
                 return i;
+            }
+            else{
+                return "la patente no existe en el registro";
             }
         }
     }
@@ -52,41 +55,42 @@ class RegistroAutomotor{
         color=ReadlineSync.question("Ingrese color: ");
         año=ReadlineSync.questionInt("Ingrese año fabricacion: ");
         modelo=ReadlineSync.question("Ingrese modelo: ");
-        cajaCambio=ReadlineSync.question("Ingrese true por caja automatica o false por manual: ");
+        cajaCambio=(ReadlineSync.question("Ingrese true por caja automatica o false por manual: ")=="automatica");
         patente=ReadlineSync.question("Ingrese patente: ");
         let nuevoAuto:Auto= new Auto(marca,color,año,modelo,cajaCambio,patente);
-        arrayRegistro=nuevoAuto.split("");
+        this.array.push(nuevoAuto);
     }
-    public actualizar():string[]{
+    public actualizar(patenteIngresada:string):Auto{
         let opcion:number=ReadlineSync.questionInt("ingrese 1 para cambiar de color, 0 para salir")
         while(opcion!=0){
             let nuevoColor=ReadlineSync.question("ingrese el nuevo color del coche: ");
             if(this.buscarPatente(patenteIngresada)){
-                this.arrayRegistro[this.buscarPatente(patenteIngresada)].SetColor(nuevoColor);   
+                this.array[this.buscarPatente(patenteIngresada)].SetColor(nuevoColor);   
             }else{
                 console.log("el auto buscado no esta");
             }
         }
-        return registro[this.buscarPatente(patenteIngresada)];
+        return this.array[this.buscarPatente(patenteIngresada)];
     }
 }
+let lista:string=fs.readFileSync("autos.txt", "utf-8");
+let arrayAutos:string[]=lista.split("\r\n");
 
-function llenarArreglos(){
-    let lista:string=fs.readFileSync("autos.txt", "utf-8");
-    let arrayAutos:string[]=lista("\r\n");
-    for(let indice:number=0;indice<arrayAutos;indice++){
-
+function llenarArreglos(array:string[]):Auto[] {
+    let arrayRegistro:Auto[]=[];
+    for(let indice:number=0;indice<arrayAutos.length;indice++){
+        let cadena:any[]=arrayAutos[indice].split(",")
+        let marca:string= cadena[0];
+        let color:string=cadena[1];
+        let año:number=cadena[2];
+        let modelo:string=cadena[3];
+        let cajaCambio:boolean=cadena[4];
+        let patente:string=cadena[5];
+        arrayRegistro.push(new Auto(marca,color,año,modelo,cajaCambio,patente));
     }
-    let arrayRegistro:string[]=arrayAutos.split(",");
-    for(let i:number=0;i<arrayAutos.length;i++){
-        let registro: Auto = new Auto(arrayRegistro[i]);
-    }
+    return arrayRegistro;
 }
 
 let marca:string,color:string,año:number,modelo:string,cajaCambio:boolean,patente:string;
-let patenteIngresada:string=ReadlineSync.question("ingrese patente a buscar: ");
-//let autos=[new Auto("ford","rojo",2020,"focus",true,"AB 120 LO"),new Auto("ford","rojo",2020,"focus",true,"AB 145 JH")];
-//let registro: RegistroAutomotor= new RegistroAutomotor(autos);
-//console.log(registro.buscarPatente("AB 145 JH"));
-// let arreglo: RegistroAutomotor[]= new RegistroAutomotor()
-//console.log(registro);
+let registro: RegistroAutomotor= new RegistroAutomotor(llenarArreglos(arrayAutos))
+console.log(registro);
