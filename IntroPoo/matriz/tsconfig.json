@@ -10,6 +10,6 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "files": [
-    "registro.ts"
+    "./matrices.ts",
   ]
 }
