@@ -42,6 +42,9 @@ class TelefonoConCamara extends Telefono{
     public grabarVideo(){
         console.log("grabando...");
     }
+    public cambiarVolumen(volumen:number){
+        this.volumenActual=volumen;
+    }
 }
 class TelefonoConRadio extends Telefono{
     private frecuenciaActual:number;
@@ -57,6 +60,9 @@ class TelefonoConRadio extends Telefono{
     }
     public anteriorFrecuencia(){
         this.frecuenciaActual=-1;
+    }
+    public cambiarVolumenClaseRadio(volumen:number){
+        this.volumenActual=volumen;
     }
 }
 
