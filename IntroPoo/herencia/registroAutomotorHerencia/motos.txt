@@ -1,0 +1,4 @@
+Gilera,rojo,2008,base,manual,MOP 326
+Zanella,blanco,2010,ZB,manual,MIA 582
+Honda,negro,2020,Wave,,manualAB 086 DMB
+Honda,blanco,2019,Xr,,manualHY 258 DMI
