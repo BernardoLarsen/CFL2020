@@ -41,29 +41,39 @@ var Telefono = /** @class */ (function () {
             this.estaPrendido = true;
         }
     };
-    Telefono.prototype.prenderApagarLinterna = function () {
-        if (this.linternaPrendida == true) {
-            this.linternaPrendida = false;
-        }
-        else {
-            this.linternaPrendida = true;
-        }
-    };
     return Telefono;
+}());
+var Camara = /** @class */ (function () {
+    function Camara() {
+    }
+    Camara.prototype.sacarFotoCamara = function () {
+        return "sonido de captura";
+    };
+    return Camara;
 }());
 var TelefonoConCamara = /** @class */ (function (_super) {
     __extends(TelefonoConCamara, _super);
     function TelefonoConCamara() {
-        return _super.call(this) || this;
+        var _this = _super.call(this) || this;
+        _this.camara = new Camara;
+        return _this;
     }
     TelefonoConCamara.prototype.sacarFoto = function () {
-        console.log("*sonido de captura* clase TelefonoConCamara");
+        return this.camara.sacarFotoCamara();
     };
     TelefonoConCamara.prototype.grabarVideo = function () {
         console.log("grabando...");
     };
     TelefonoConCamara.prototype.cambiarVolumen = function (volumen) {
         this.volumenActual = volumen;
+    };
+    TelefonoConCamara.prototype.prenderApagarLinterna = function () {
+        if (this.linternaPrendida == true) {
+            this.linternaPrendida = false;
+        }
+        else {
+            this.linternaPrendida = true;
+        }
     };
     return TelefonoConCamara;
 }(Telefono));
@@ -88,21 +98,11 @@ var TelefonoConRadio = /** @class */ (function (_super) {
     };
     return TelefonoConRadio;
 }(Telefono));
-var Camara = /** @class */ (function (_super) {
-    __extends(Camara, _super);
-    function Camara() {
-        return _super.call(this) || this;
-    }
-    Camara.prototype.sacarFotoCamara = function () {
-        console.log("*sonido de captura* class Camara");
-    };
-    return Camara;
-}(TelefonoConCamara));
 var celularCamara = new TelefonoConCamara();
 console.log(celularCamara);
 celularCamara.prenderApagar();
 celularCamara.hacerLlamada(2494556788);
-celularCamara.sacarFoto();
+console.log(celularCamara.sacarFoto());
 celularCamara.subirVolumen();
 celularCamara.prenderApagarLinterna();
 console.log(celularCamara);
@@ -114,4 +114,4 @@ celularRadio.verFrecuenciaActual();
 celularRadio.siguienteFrecuencia();
 console.log(celularRadio);
 var nuevaCamara = new Camara();
-nuevaCamara.sacarFotoCamara();
+console.log(nuevaCamara.sacarFotoCamara());

@@ -33,27 +33,38 @@ class Telefono{
             this.estaPrendido=true;
         }
     }
-    public prenderApagarLinterna(){
-        if(this.linternaPrendida==true){
-            this.linternaPrendida=false;
-        }else{
-            this.linternaPrendida=true;
-        }
-    }
+
     
 }
+class Camara{
+    public constructor(){
+    }
+    public sacarFotoCamara():string{
+        return "sonido de captura";
+    }
+}
+
 class TelefonoConCamara extends Telefono{
+    private camara: Camara;
     public constructor(){
         super();
+        this.camara=new Camara;
     }
-    public sacarFoto(){
-        console.log("*sonido de captura* clase TelefonoConCamara");
+    public sacarFoto():string{
+        return this.camara.sacarFotoCamara();
     }
     public grabarVideo(){
         console.log("grabando...");
     }
     public cambiarVolumen(volumen:number){
         this.volumenActual=volumen;
+    }
+    public prenderApagarLinterna(){
+        if(this.linternaPrendida==true){
+            this.linternaPrendida=false;
+        }else{
+            this.linternaPrendida=true;
+        }
     }
 }
 class TelefonoConRadio extends Telefono{
@@ -75,20 +86,13 @@ class TelefonoConRadio extends Telefono{
         this.volumenActual=volumen;
     }
 }
-class Camara extends TelefonoConCamara{
-    public constructor(){
-        super();
-    }
-    public sacarFotoCamara(){
-        console.log("*sonido de captura* class Camara");
-    }
-}
+
 
 let celularCamara:TelefonoConCamara=new TelefonoConCamara();
 console.log(celularCamara);
 celularCamara.prenderApagar()
 celularCamara.hacerLlamada(2494556788);
-celularCamara.sacarFoto();
+console.log(celularCamara.sacarFoto());
 celularCamara.subirVolumen();
 celularCamara.prenderApagarLinterna();
 console.log(celularCamara);
@@ -103,4 +107,4 @@ celularRadio.siguienteFrecuencia();
 console.log(celularRadio);
 
 let nuevaCamara:Camara=new Camara();
-nuevaCamara.sacarFotoCamara();
+console.log(nuevaCamara.sacarFotoCamara());
