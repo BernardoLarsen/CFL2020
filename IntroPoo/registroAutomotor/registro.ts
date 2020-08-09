@@ -9,7 +9,7 @@ class Auto{
     private cajaCambio: boolean; // SI ES TRUE ES AUTOMATICO.. SI ES FALSE ES MANUAL
     private _patente: string;
 
-    constructor(marca:string,color:string,año:number,modelo:string,cajaCambio:boolean, patente:string){
+    constructor(marca:string,color:string,año:number,modelo:string,cajaCambio:boolean,patente:string){
         this.marca=marca;
         this.color=color;
         this.año=año;

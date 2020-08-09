@@ -1,0 +1,10 @@
+Ford,negro,2020,focus,automatico,AB 156 LH
+Ford,azul,2020,ka,manual,OP 130 MI
+Ford,negro,2019,ranger,automatico,LO 222 JI
+Fiat,verde,2019,toro,automatico,MA 897 PO
+Fiat,azul,2016,punto,manual,SA 167 ME
+Audi,gris,a4,2016,automatico,BY 762 MA
+Citroen,2020,blanco,c3,manual,KI 240 MJ
+Citroen,2020,blanco,berlingo,manual,LO 765 HT
+Peugeot,negro,2012,208,manual,MIR 876
+Peugeot,blanco,2020,2008,automatico,KD 700 KL
