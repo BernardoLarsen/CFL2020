@@ -105,6 +105,3 @@ celularRadio.prenderApagar();
 celularRadio.verFrecuenciaActual();
 celularRadio.siguienteFrecuencia();
 console.log(celularRadio);
-
-let nuevaCamara:Camara=new Camara();
-console.log(nuevaCamara.sacarFotoCamara());
