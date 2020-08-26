@@ -1,0 +1,5 @@
+Iveco,blanco,2020,full,manual,JU 258 MI,true
+Scania,negro,2019,full,manual,LO 555 MO,true
+Scania,blanco,2020,base,manual,MI 789 LO,false
+Mercedes Benz,blanco,2016,full,manual,LI 357 AB,false
+Scania,blanco,2020,full,false,DA 982 AA,true
