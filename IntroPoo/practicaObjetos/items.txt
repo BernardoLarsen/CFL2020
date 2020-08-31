@@ -1,0 +1,7 @@
+milk,50
+chocolate,70
+candy,2
+drink,80
+cookies,60
+nougat,20
+caramel cookie,45
