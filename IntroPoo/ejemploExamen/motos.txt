@@ -1,0 +1,5 @@
+Gilera,rojo,2008,base,false,MOP 326
+Zanella,blanco,2010,ZB,false,MIA 582
+Honda,negro,2020,Wave,false,manual
+Honda,blanco,2019,Xr,false,HY 258 DMI
+zanella,verde Violaseo,1999,zb,false,ABF 786
